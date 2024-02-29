@@ -1,5 +1,5 @@
-import { Character } from "../models/Character";
-import { CharacterRepository } from "../repositories/CharacterRepository";
+import { Character } from "../../models/Character";
+import { CharacterRepository } from "../../repositories/CharacterRepository";
 
 export class GetAllCharacters {
   constructor(private characterRepository: CharacterRepository) {}

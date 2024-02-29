@@ -12,7 +12,7 @@ const CharacterList: React.FC<CharacterListProps> = ({ characters }) => {
         <div>
             {characters.map(character => (
                 <div key={character.id}>
-                    <img src={character.image} alt={character.name} />
+                    <img src={character.thumbnail.path + '.' + character.thumbnail.extension} alt={character.name} />
                     <p>{character.name}</p>
                 </div>
             ))}
