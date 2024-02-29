@@ -12,7 +12,6 @@ const searchCharactersByName = new SearchCharactersByName(characterService);
 const HomepPageController = () => {
   const [characters, setCharacters] = useState<Character[]>([]);
   const [searchResults, setSearchResults] = useState<Character[]>([]);
-  const [query, setQuery] = useState("");
 
   const fetchCharacters = async () => {
     try {
@@ -26,7 +25,6 @@ const HomepPageController = () => {
   }, []);
 
   const handleSearch = async (query: string) => {
-    setQuery(query);
     if (query.trim() === "") {
       setSearchResults([]);
     } else {
@@ -40,7 +38,6 @@ const HomepPageController = () => {
   return {
     characters,
     searchResults,
-    query,
     handleSearch,
   };
 };

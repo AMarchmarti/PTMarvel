@@ -1,6 +1,9 @@
 
 import React from 'react';
 import { Character } from '../../domain/models/Character';
+import CharacterItem from '../CharacterItem/CharacterItem';
+
+import './CharacterList.css';
 
 
 interface CharacterListProps {
@@ -9,12 +12,9 @@ interface CharacterListProps {
 
 const CharacterList: React.FC<CharacterListProps> = ({ characters }) => {
     return (
-        <div>
+        <div className='character-list'>
             {characters.map(character => (
-                <div key={character.id}>
-                    <img src={character.thumbnail.path + '.' + character.thumbnail.extension} alt={character.name} />
-                    <p>{character.name}</p>
-                </div>
+                <CharacterItem id={character.id} name={character.name} image={character.thumbnail.path + "." + character.thumbnail.extension} />
             ))}
         </div>
     );
