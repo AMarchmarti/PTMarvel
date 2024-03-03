@@ -1,5 +1,5 @@
-import { Extension } from "../domain/models/Base";
+import {  ExtensionT } from "../domain/models/Base";
 
-export const createMarvelImg = ({path, extension}: {path:string, extension: Extension}) => {
+export const createMarvelImg = ({path, extension}: {path:string, extension: ExtensionT}) => {
   return `${path}.${extension}`;
 }

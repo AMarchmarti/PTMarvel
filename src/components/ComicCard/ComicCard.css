@@ -3,8 +3,11 @@
   display: flex;
   flex-direction: column;
   width: 179.92px;
-  height: 340.8px;
+  min-height: 340.8px;
+  height: 100%;
   gap: 12px;
+  cursor: pointer;
+  position: relative;
 }
 
 .comic-card img {
@@ -15,9 +18,10 @@
 .comic-card p {
   font-size: var(--font-size);
   font-weight: 500;
-  line-height: 19px;
   letter-spacing: 0em;
   text-align: left;
+  overflow-wrap: break-word;
+  white-space: wrap;
 }
 
 .comic-card span {

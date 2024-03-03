@@ -18,7 +18,7 @@ export interface Data<T> {
 
 export interface Thumbnail {
   path: string;
-  extension: Extension;
+  extension: ExtensionT;
 }
 
 
@@ -34,6 +34,8 @@ export interface StoriesItem {
   name: string;
   type: ItemType;
 }
+
+export type ExtensionT = "gif" | "jpg";
 
 export enum ItemType {
   Cover = "cover",
