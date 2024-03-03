@@ -1,7 +1,9 @@
 import { LIMIT_CHARACTERS } from "../../../constants/Global";
-import { Character, Response } from "../../../domain/models/Character";
+import { Character, CharacterFilter } from "../../../domain/models/Character";
 import { CharacterRepository } from "../../../domain/repositories/CharacterRepository";
 import { get } from "../../utils/HttpsService";
+import { appendFilter } from "../../utils/appendFilter";
+
 import { concatApiKey } from "../../utils/concatApiKey";
 
 export class CharacterService implements CharacterRepository {
@@ -9,22 +11,20 @@ export class CharacterService implements CharacterRepository {
     import.meta.env.VITE_BASE_URL
   }`;
 
-  async getAllCharacters(): Promise<Character[]> {
-    let characters: Character[] = [];
-    try {
-      const response: Response<Character> = await get({
-        path: concatApiKey(
-          `${this.API_URL}/characters?limit=${LIMIT_CHARACTERS}&offset=0`
-        ),
-      });
-      characters = response.data.results;
-    } catch (error) {}
-    return characters;
+  async getAllCharacters(filter?: CharacterFilter): Promise<Character[]> {
+    const url = new URL(`${this.API_URL}/characters`);
+    url.searchParams.append("limit", LIMIT_CHARACTERS.toString());
+    url.searchParams.append("offset", "0");
+
+    const urlWithFilter = appendFilter({ url, filter: filter || {} });
+    const characters = await get({ path: concatApiKey(urlWithFilter) });
+
+    return characters.data.results;
   }
 
-  async searchCharactersByName(name: string): Promise<Character[]> {
-    return get({
-      path: concatApiKey(`${this.API_URL}/characters?name=${name}`),
-    });
+  async getCharacterById(id: string): Promise<Character> {
+    const url = new URL(`${this.API_URL}/characters/${id}`);
+    const character = await get({ path: concatApiKey(url) });
+    return character;
   }
 }

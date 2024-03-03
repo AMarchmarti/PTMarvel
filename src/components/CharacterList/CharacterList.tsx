@@ -13,8 +13,8 @@ interface CharacterListProps {
 const CharacterList: React.FC<CharacterListProps> = ({ characters }) => {
     return (
         <div className='character-list'>
-            {characters.map(character => (
-                <CharacterItem id={character.id} name={character.name} image={character.thumbnail.path + "." + character.thumbnail.extension} />
+            {characters.map((character, index) => (
+                <CharacterItem key={index} id={character.id} name={character.name} image={character.thumbnail.path + "." + character.thumbnail.extension} />
             ))}
         </div>
     );

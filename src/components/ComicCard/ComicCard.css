@@ -1,0 +1,32 @@
+
+.comic-card {
+  display: flex;
+  flex-direction: column;
+  width: 179.92px;
+  height: 340.8px;
+  gap: 12px;
+}
+
+.comic-card img {
+  height: 268.8px;
+  object-fit: cover;
+}
+
+.comic-card p {
+    font-family: Roboto Condensed;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.comic-card span {
+    font-family: Roboto Condensed;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0em;
+    text-align: left;
+
+}

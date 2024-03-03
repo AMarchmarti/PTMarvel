@@ -1,6 +1,6 @@
-@import "src/variables.css";
+@import "../../variables.css";
 
-input[type="text"] {
+/* input[type="text"] {
   background-color: transparent;
   border: 0px;
   outline: none;
@@ -9,4 +9,4 @@ input[type="text"] {
   box-shadow: none;
   color: transparent;
   cursor: default;
-}
+} */

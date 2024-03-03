@@ -1,20 +1,24 @@
 import React, { useState } from 'react';
 import './SearchInput.css';
+import { Form } from 'react-router-dom';
 
 interface SearchInputProps {
-    handleSearch: (query: string) => void;
-    initialValue?: string;
+    handleSearch: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    initialValue: string;
+    ref: React.RefObject<HTMLInputElement>;
 }
-const SearchInput = ({ handleSearch, initialValue }: SearchInputProps) => {
+const SearchInput = ({ handleSearch, initialValue, ref }: SearchInputProps) => {
     const [querySearch, setQuerySearch] = useState(initialValue)
-    const handleChange = (event: any) => {
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setQuerySearch(event.target.value);
-        handleSearch(event.target.value);
+        handleSearch(event);
     };
+    console.log('ref', ref)
     return (
-        <div>
-            <input type="text" value={querySearch} placeholder="Search" onChange={handleChange} />
-        </div>
+
+        <Form>
+            <input id='search' name={querySearch.length ? "nameStartsWith" : ''} ref={ref} type="search" value={querySearch} placeholder="Search" onChange={handleChange} />
+        </Form>
     );
 }
 

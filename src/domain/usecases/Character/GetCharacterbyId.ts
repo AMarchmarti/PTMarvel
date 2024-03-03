@@ -1,10 +1,10 @@
 import { Character } from "../../models/Character";
 import { CharacterRepository } from "../../repositories/CharacterRepository";
 
-export class SearchCharactersByName {
+export class GetCharacterById {
   constructor(private characterRepository: CharacterRepository) {}
 
-  execute(name: string): Promise<Character[]> {
-    return this.characterRepository.searchCharactersByName(name);
+  execute(id: string): Promise<Character> {
+    return this.characterRepository.getCharacterById(id);
   }
 }

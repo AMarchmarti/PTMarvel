@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { MouseEventHandler, useState } from 'react';
 import './CharacterItem.css'
 import HeartIconSelected from '../Icons/HeartIconSelected';
 import HeartIconUnselected from '../Icons/HeartIconUnselected';
+import { useNavigate } from 'react-router-dom';
 
 interface CharacterItemProps {
     name: string;
@@ -12,15 +13,17 @@ interface CharacterItemProps {
 
 const CharacterItem = ({ name, image, id }: CharacterItemProps) => {
     const [selected, setSelected] = useState(false)
-    const handleSeleceted = () => {
+    const navigate = useNavigate()
+    const handleSeleceted = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        e.stopPropagation()
         setSelected(!selected)
     }
-    // const handleNavigate = () => { 
-
-    // }
+    const handleSelectedCharacter = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        navigate(`/character/${id}`)
+    }
 
     return (
-        <div className="character-item">
+        <div className="character-item" onClick={(e) => handleSelectedCharacter(e)}>
             <img className='character-item__image' src={image} alt={name} />
 
             <div className='character-item__title'>

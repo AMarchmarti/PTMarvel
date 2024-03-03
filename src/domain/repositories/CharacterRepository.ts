@@ -1,6 +1,6 @@
-import { Character } from "../models/Character";
+import { Character, CharacterFilter } from "../models/Character";
 
 export interface CharacterRepository {
-  getAllCharacters: () => Promise<Character[]>;
-  searchCharactersByName: (name: string) => Promise<Character[]>;
+  getAllCharacters: (filter?: CharacterFilter) => Promise<Character[]>;
+  getCharacterById: (id: string) => Promise<Character>;
 }
