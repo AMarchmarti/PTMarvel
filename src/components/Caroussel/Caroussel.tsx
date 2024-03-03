@@ -1,22 +1,18 @@
 // Carousel.tsx
 import React, { useRef, useState } from 'react';
-import './Carousel.css';
-import ComicCard from '../ComicCard/ComicCard';
+// import './Carousel.css';
+
 
 interface CarouselProps {
-    images: string[];
+    data: any[];
+    Card: React.FC<any>;
 }
 
-interface DragMoveI {
-    moveEvent: MouseEvent | TouchEvent;
-    startX: number;
-    scrollLeftStart: number;
 
-}
-
-const Carousel: React.FC<CarouselProps> = ({ comics }) => {
+const Carousel: React.FC<CarouselProps> = ({ data, Card }) => {
     const carouselRef = useRef<HTMLDivElement>(null);
     const [scrollLeft, setScrollLeft] = useState(0);
+    console.log('data', data)
 
     const handleScroll = (event: React.UIEvent<HTMLDivElement>) => {
         const target = event.target as HTMLDivElement;
@@ -56,8 +52,8 @@ const Carousel: React.FC<CarouselProps> = ({ comics }) => {
                 onTouchStart={handleDragStart as React.TouchEventHandler<HTMLDivElement>}
                 draggable
             >
-                {comics.map((comic, index) => (
-                    <ComicCard key={index} imageUrl={comic.imageUrl} />
+                {data?.map((dataProps: any, index: number) => (
+                    <Card key={index} {...dataProps} />
                 ))}
             </div>
             <div className="scrollbar" style={{ left: scrollLeft }}></div>

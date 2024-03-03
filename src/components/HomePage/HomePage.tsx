@@ -38,7 +38,7 @@ const HomePage = () => {
     return (
         <>
 
-            <SearchInput ref={filter.ref} initialValue={filter.input} handleSearch={filter.handleChange} />
+            <SearchInput inputRef={filter.ref} initialValue={filter.input} handleSearch={filter.handleChange} />
             <Suspense fallback={<div></div>}>
                 <Await resolve={data} >
                     {(characters: Character[]) => <>

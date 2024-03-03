@@ -1,5 +1,6 @@
 import { LIMIT_CHARACTERS } from "../../../constants/Global";
 import { Character, CharacterFilter } from "../../../domain/models/Character";
+import { Comic } from "../../../domain/models/Comic";
 import { CharacterRepository } from "../../../domain/repositories/CharacterRepository";
 import { get } from "../../utils/HttpsService";
 import { appendFilter } from "../../utils/appendFilter";
@@ -25,6 +26,12 @@ export class CharacterService implements CharacterRepository {
   async getCharacterById(id: string): Promise<Character> {
     const url = new URL(`${this.API_URL}/characters/${id}`);
     const character = await get({ path: concatApiKey(url) });
-    return character;
+    return character.data.results[0];
+  }
+
+  async getComicByCharacterId(id: string): Promise<Comic[]> {
+    const url = new URL(`${this.API_URL}/characters/${id}/comics`);
+    const comics = await get({ path: concatApiKey(url) });
+    return comics.data.results;
   }
 }

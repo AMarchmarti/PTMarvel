@@ -4,6 +4,7 @@ import { Character } from '../../domain/models/Character';
 import CharacterItem from '../CharacterItem/CharacterItem';
 
 import './CharacterList.css';
+import { createMarvelImg } from '../../utils/createMarvelImg';
 
 
 interface CharacterListProps {
@@ -14,7 +15,7 @@ const CharacterList: React.FC<CharacterListProps> = ({ characters }) => {
     return (
         <div className='character-list'>
             {characters.map((character, index) => (
-                <CharacterItem key={index} id={character.id} name={character.name} image={character.thumbnail.path + "." + character.thumbnail.extension} />
+                <CharacterItem key={index} id={character.id} name={character.name} image={createMarvelImg({path: character.thumbnail.path, extension: character.thumbnail.extension})} />
             ))}
         </div>
     );

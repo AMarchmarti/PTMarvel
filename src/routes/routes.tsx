@@ -15,4 +15,9 @@ export const routes: RouteObject[] = [
     element: <CharacterPage />,
     loader: characterLoader,
   },
+  {
+    path: "/favorites",
+    element: <HomePage />,
+    loader: characterLoader,
+  },
 ];
