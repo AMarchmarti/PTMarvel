@@ -1,0 +1,95 @@
+@import "../../variables.css";
+.character--page__title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 48px;
+  background-color: black;
+
+  color: #fff;
+}
+
+.character--page__title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  background-color: #fff;
+  clip-path: polygon(100% 0, 0 100%, 100% 100%);
+}
+.character--page__img {
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
+}
+.character--page__resume {
+  display: flex;
+  width: 960px;
+  height: 320px;
+  padding: 0px 48px;
+}
+
+.character--page__info {
+  display: flex;
+  flex-direction: column;
+  max-width: 640px;
+  max-height: 320px;
+  padding: 48px 0px 48px 48px;
+  gap: calc(var(--space) * 6);
+}
+
+.character--page__info__title {
+  display: flex;
+  max-width: 592px;
+  height: 47px;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.character--page__comics {
+  height: 526.8px;
+  top: 403.94px;
+  padding: 0px 48px;
+}
+
+@media screen and (max-width: 834px) {
+  .character--page__title {
+    padding: 0px;
+  }
+  .character--page__resume {
+    height: 278px;
+    max-width: var(--tablet);
+    padding: 0px;
+  }
+
+  .character--page__info {
+    width: 320px;
+    max-height: 320px;
+  }
+
+  .character--page__img {
+    width: 278px;
+    height: 278px;
+  }
+}
+
+@media screen and (max-width: 643px) {
+  .character--page__resume {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .character--page__info {
+    padding: 24px 16px 48px 16px;
+    width: 95%;
+    gap: 24px;
+  }
+  .character--page__img {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}

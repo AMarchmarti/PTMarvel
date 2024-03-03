@@ -5,7 +5,7 @@ import './ComicCard.css';
 interface ComicCardProps {
     imageUrl: string;
     name: string;
-    year: string;
+    year?: string;
 }
 
 const ComicCard: React.FC<ComicCardProps> = ({ imageUrl, name, year }) => {

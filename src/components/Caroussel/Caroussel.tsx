@@ -1,19 +1,21 @@
 // Carousel.tsx
 import React, { useRef, useState } from 'react';
-// import './Carousel.css';
+import './Caroussel.css';
+import ComicCard from '../ComicCard/ComicCard';
+import { createMarvelImg } from '../../utils/createMarvelImg';
+import { Comic } from '../../domain/models/Comic';
 
 
 interface CarouselProps {
-    data: any[];
-    Card: React.FC<any>;
+    comics: Comic[];
+
 }
 
 
-const Carousel: React.FC<CarouselProps> = ({ data, Card }) => {
+const Carousel: React.FC<CarouselProps> = ({ comics }) => {
     const carouselRef = useRef<HTMLDivElement>(null);
     const [scrollLeft, setScrollLeft] = useState(0);
-    console.log('data', data)
-
+    console.log('comics', comics)
     const handleScroll = (event: React.UIEvent<HTMLDivElement>) => {
         const target = event.target as HTMLDivElement;
         setScrollLeft(target.scrollLeft);
@@ -52,8 +54,8 @@ const Carousel: React.FC<CarouselProps> = ({ data, Card }) => {
                 onTouchStart={handleDragStart as React.TouchEventHandler<HTMLDivElement>}
                 draggable
             >
-                {data?.map((dataProps: any, index: number) => (
-                    <Card key={index} {...dataProps} />
+                {comics && comics.map((comic: Comic, index: number) => (
+                    <ComicCard key={index} imageUrl={createMarvelImg({ path: comic.thumbnail.path, extension: comic.thumbnail.extension })} name={comic.title} />
                 ))}
             </div>
             <div className="scrollbar" style={{ left: scrollLeft }}></div>

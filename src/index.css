@@ -1,0 +1,16 @@
+@import "./variables.css";
+
+body {
+  max-width: var(--desktop);
+  height: 982px;
+  top: 100px;
+  left: 100px;
+  margin: auto;
+  font-family: var(--font-family-primary);
+}
+
+@media screen and (max-width: 834px) {
+  body {
+    max-width: var(--tablet);
+  }
+}

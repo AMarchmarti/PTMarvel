@@ -2,8 +2,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-auto-rows: auto;
-  padding: 0px calc(var(--space) * 3);
-  gap: var(--space);
+  padding: 0px calc(var(--space) * 12);
+  gap: calc(var(--space) * 4);
 }
 
 @media screen and (max-width: 768px) {
@@ -14,7 +14,7 @@
 
 @media screen and (max-width: 480px) {
   .character-list {
-    padding: 0px calc(var(--space) + 8px);
-    gap: calc(var(--space) + 8px);
+    padding: 0px calc(var(--space) * 6);
+    gap: calc(var(--space) * 6);
   }
 }

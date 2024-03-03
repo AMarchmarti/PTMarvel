@@ -1,8 +1,12 @@
 :root {
     --primary-color: white;
     --secondary-color: black;
-    --space: 16px;
+    --space: 4px;
+    --font-size: 16px;
     --card-width-desktop: 188.57px;
     --marvel-red: #EC1D24;
     --card-with: 172.5px;
+    --desktop: 1512px;
+    --tablet: 834px;
+    --font-family-primary: 'Roboto Condensed', sans-serif;
 }

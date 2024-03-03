@@ -13,7 +13,6 @@ const SearchInput = ({ handleSearch, initialValue, inputRef }: SearchInputProps)
         setQuerySearch(event.target.value);
         handleSearch(event);
     };
-    console.log('ref', inputRef)
     return (
 
         <Form>

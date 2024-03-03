@@ -1,4 +1,4 @@
-import { LIMIT_CHARACTERS } from "../../../constants/Global";
+import { LIMIT_CHARACTERS, LIMIT_COMICS } from "../../../constants/Global";
 import { Character, CharacterFilter } from "../../../domain/models/Character";
 import { Comic } from "../../../domain/models/Comic";
 import { CharacterRepository } from "../../../domain/repositories/CharacterRepository";
@@ -31,6 +31,8 @@ export class CharacterService implements CharacterRepository {
 
   async getComicByCharacterId(id: string): Promise<Comic[]> {
     const url = new URL(`${this.API_URL}/characters/${id}/comics`);
+    url.searchParams.append("limit", LIMIT_COMICS.toString());
+    url.searchParams.append("offset", "0");
     const comics = await get({ path: concatApiKey(url) });
     return comics.data.results;
   }
