@@ -1,23 +1,23 @@
 import { useContext, useState } from "react"
-import { FavoritesContext } from "../../context/FavoriteContext"
-import { IconSizeT } from "../Icons/IconProps.interface";
-import GlobalIcon from "../Icons/GlobalIcon";
+import { FavoritesContext } from "../../../context/FavoriteContext"
+import { IconSizeT } from "../../Icons/IconProps.interface";
+import GlobalIcon from "../../Icons/GlobalIcon";
+import { Character } from "../../../domain/models/Character";
 
 interface SelectFavoritesProps {
     className?: string;
-    id: number;
-    name: string;
+    character: Character;
     size?: IconSizeT;
 }
 
-const SelectFavorites = ({ className, id, name, size }: SelectFavoritesProps) => {
+const SelectFavorites = ({ className,character, size }: SelectFavoritesProps) => {
     const { toggleFavorite, isFavorite } = useContext(FavoritesContext)
-    const [selected, setSelected] = useState(isFavorite(id.toString()))
+    const [selected, setSelected] = useState(isFavorite(character.id.toString()))
 
     const handleSeleceted = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         e.stopPropagation()
         setSelected(!selected)
-        toggleFavorite({ id: id.toString(), name: name })
+        toggleFavorite(character)
     }
 
     return <div onClick={handleSeleceted}>

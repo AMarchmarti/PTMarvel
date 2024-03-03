@@ -15,7 +15,6 @@ interface CarouselProps {
 const Carousel: React.FC<CarouselProps> = ({ comics }) => {
     const carouselRef = useRef<HTMLDivElement>(null);
     const [scrollLeft, setScrollLeft] = useState(0);
-    console.log('comics', comics)
     const handleScroll = (event: React.UIEvent<HTMLDivElement>) => {
         const target = event.target as HTMLDivElement;
         setScrollLeft(target.scrollLeft);

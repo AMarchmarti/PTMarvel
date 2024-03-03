@@ -1,14 +1,10 @@
 import React, { createContext, useState, useEffect } from 'react';
+import { Character } from '../domain/models/Character';
 
-
-interface Favorite {
-    id: string;
-    name: string;
-}
 
 interface FavoritesContextType {
-    favorites: Favorite[];
-    toggleFavorite: (favorite: Favorite) => void;
+    favorites: Character[];
+    toggleFavorite: (favorite: Character) => void;
     isFavorite: (id: string) => boolean;
 }
 
@@ -21,21 +17,23 @@ const FavoritesContext = createContext<FavoritesContextType>({
 
 const FavoritesProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
-    const [favorites, setFavorites] = useState<Favorite[]>([]);
+    const [favorites, setFavorites] = useState<Character[]>([]);
 
     const isFavorite = (id: string) => {
-        return favorites.some((f) => f.id === id);
+        return favorites.some((f: Character) => f.id.toString() === id);
     };
 
-    const toggleFavorite = (favorite: Favorite) => {
-       
+    const toggleFavorite = (favorite: Character) => {
 
-        if (isFavorite(favorite.id)) {
-            const updatedFavorites = favorites.filter((f) => f.id !== favorite.id);
-            setFavorites(updatedFavorites);
+        let newFavorites = []
+        if (isFavorite(favorite.id.toString())) {
+            newFavorites = favorites.filter((f) => f.id !== favorite.id);
+
         } else {
-            setFavorites([...favorites, favorite]);
+            newFavorites = [...favorites, favorite];
         }
+        setFavorites(newFavorites);
+        localStorage.setItem('favorites', JSON.stringify(newFavorites));
     };
 
 
@@ -46,10 +44,6 @@ const FavoritesProvider: React.FC<{ children: React.ReactNode }> = ({ children }
         }
     }, []);
 
-
-    useEffect(() => {
-        localStorage.setItem('favorites', JSON.stringify(favorites));
-    }, [favorites]);
 
     return (
         <FavoritesContext.Provider value={{ favorites, toggleFavorite, isFavorite }}>

@@ -1,23 +1,24 @@
 import { RouteObject } from "react-router-dom";
 import homeLoader from "./Loaders/homeLoader";
 import characterLoader from "./Loaders/characterLoader";
-import CharacterPage from "../components/CharacterPage/CharacterPage";
-import HomePage from "../components/HomePage/HomePage";
+
+import CharacterListPage from "../components/pages/CharacterListPage";
+import CharacterDetailPage from "../components/pages/CharacterDetailPage";
 
 export const routes: RouteObject[] = [
   {
     path: "/",
-    element: <HomePage />,
+    element: <CharacterListPage />,
     loader: homeLoader,
   },
   {
     path: "/character/:id",
-    element: <CharacterPage />,
+    element: <CharacterDetailPage />,
     loader: characterLoader,
   },
   {
     path: "/favorites",
-    element: <HomePage />,
+    element: <CharacterListPage />,
     loader: characterLoader,
   },
 ];

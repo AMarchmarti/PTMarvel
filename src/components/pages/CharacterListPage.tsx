@@ -8,7 +8,7 @@ import { Character } from '../../domain/models/Character';
 import SearchInput from '../SearchInput/SearchInput';
 import { useFilter } from '../../hooks/useFilter';
 
-const HomePage = () => {
+const CharacterListPage = () => {
 
     const { data, search } = useLoaderData() as {
         data: Character[];
@@ -32,26 +32,22 @@ const HomePage = () => {
         }
     };
 
-
-
-
     return (
         <>
 
-            <SearchInput inputRef={filter.ref} initialValue={filter.input} handleSearch={filter.handleChange} />
-            <Suspense fallback={<div></div>}>
-                <Await resolve={data} >
-                    {(characters: Character[]) => <>
-                        <div style={{ maxWidth: 1512, display: 'flex', flexDirection: "column", padding: '48px 0px', gap: "24px", margin: 'auto' }}>
-
+            <div style={{ maxWidth: 1512, display: 'flex', flexDirection: "column", padding: '48px 0px', gap: "24px", margin: 'auto' }}>
+                <SearchInput inputRef={filter.ref} initialValue={filter.input} handleSearch={filter.handleChange} />
+                <Suspense fallback={<div></div>}>
+                    <Await resolve={data} >
+                        {(characters: Character[]) => <>
                             <CharacterList characters={characters} />
-                        </div>
-                    </>
-                    }
-                </Await>
-            </Suspense>
+                        </>
+                        }
+                    </Await>
+                </Suspense>
+            </div>
         </>
     );
 };
 
-export default HomePage;
+export default CharacterListPage;
