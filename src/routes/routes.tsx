@@ -1,7 +1,7 @@
 import Layout from "../components/Layout/Layout";
-import CharacterDetailPage from "../components/pages/CharacterDetailPage";
-import CharacterListPage from "../components/pages/CharacterListPage";
-import FavoriteCharactersPage from "../components/pages/FavoriteCharactersPage";
+import CharacterDetailPage from "../components/pages/CharacterDetailPage/CharacterDetailPage";
+import CharacterListPage from "../components/pages/CharacterListpage/CharacterListPage";
+import FavoriteCharactersPage from "../components/pages/FavoritePage/FavoriteCharactersPage";
 
 import characterLoader from "./Loaders/characterLoader";
 import charactersLoader from "./Loaders/charactersLoader";

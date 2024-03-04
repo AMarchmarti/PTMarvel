@@ -5,26 +5,28 @@ import { useDebounce } from "./useDebounce";
 import type React from "react";
 
 type HookType = {
-  initialValue: string;
-  onChange: (value: string) => void;
+	initialValue: string;
+	onChange: (value: string) => void;
 };
 
 export const useFilter = ({ initialValue, onChange }: HookType) => {
-  const [input, setInput] = useState<string>(initialValue || "");
-  const ref = useRef<HTMLInputElement>(null);
-  const searchDebounced = useDebounce(input, 600);
+	const [input, setInput] = useState<string>(initialValue || "");
+	const ref = useRef<HTMLInputElement>(null);
+	const searchDebounced = useDebounce(input, 600);
 
-  useEffect(() => {
-    onChange(input);
-  }, [searchDebounced]);
+	useEffect(() => {
+		if (input !== initialValue) {
+			onChange(input);
+		}
+	}, [searchDebounced]);
 
-  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-    setInput(event.target.value);
-  }
+	function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+		setInput(event.target.value);
+	}
 
-  return {
-    handleChange,
-    input,
-    ref,
-  };
+	return {
+		handleChange,
+		input,
+		ref,
+	};
 };

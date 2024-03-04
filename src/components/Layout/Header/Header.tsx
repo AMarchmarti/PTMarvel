@@ -16,7 +16,6 @@ const locationMarvel: LocationMarvel = {
 
 };
 
-
 const Header = () => {
     const { favorites } = useContext(FavoritesContext)
     const navigate = useNavigate();
@@ -27,9 +26,9 @@ const Header = () => {
 
     return <header >
         <GlobalIcon className='header-logo' iconName="MarvelLogo" onClick={() => handleNavigate("home")} />
-        <button className='header-favorites' onClick={() => handleNavigate("favorites")} disabled={disabled} style={{ cursor: !disabled ? "pointer" : "not-alloed" }}>
+        <button className='header-favorites' onClick={() => handleNavigate("favorites")} disabled={disabled} style={{ cursor: !disabled ? "pointer" : "not-alloed" }} data-testid="header-favorite-button">
             <GlobalIcon iconName="HeartIconSelected" size="XS" />
-            {!disabled && <span className='header-favorites-count'>{favorites.length}</span>}
+            {!disabled && <span className='header-favorites-count' data-testid="header-favorite-span">{favorites.length}</span>}
         </button>
     </header>
 }

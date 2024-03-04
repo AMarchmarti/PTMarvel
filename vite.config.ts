@@ -35,5 +35,11 @@ export default defineConfig(({ mode }) => {
 			},
 			extensions: [".js", ".json", ".jsx", ".mjs", ".ts", ".tsx", ".cjs"],
 		},
+		test: {
+			globals: true,
+			environment: "jsdom",
+			setupFiles: ["test/vitest.setup.tsx"],
+			include: ["**/?(*.)test.ts?(x)"],
+		},
 	};
 });

@@ -8,7 +8,8 @@ const getAllCharacters = new GetAllCharacters(characterService);
 
 const charactersLoader = async ({ request }: { request: Request }) => {
 	const url = new URL(request.url);
-	const search = url.searchParams.get("nameStartsWith");
+	const search = url.searchParams.get("nameStartsWith") || "";
+
 	const characterPromise = getAllCharacters.execute({
 		nameStartsWith: search,
 	});

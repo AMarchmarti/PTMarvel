@@ -1,42 +1,46 @@
-import { render, screen, fireEvent } from "@testing-library/react";
-import { useNavigate } from "react-router-dom";
+import { fireEvent, render, screen } from "@testing-library/react";
+import { vi } from "vitest"
 
-import CharacterItem from "./CharacterListItem";
+import { createMarvelImg } from "../../../utils/createMarvelImg";
+
+import CharacterListItem from "./CharacterListItem";
 
 import type { Character } from "../../../domain/models/Character";
 
+const mockCharacter: Character = {
+    id: 1,
+    name: "Iron Man",
+    thumbnail: { path: "path1", extension: "jpg" },
+};
 
-jest.mock("react-router-dom", () => ({
-    useNavigate: jest.fn(),
-}));
+describe("CharacterListItem", () => {
+    it("should render the character name and image correctly", () => {
+        render(<CharacterListItem character={mockCharacter as Character} />);
 
-describe("CharacterItem", () => {
-    const mockCharacter: Character = {
-        id: 1,
-        name: "Iron Man",
-        thumbnail: { path: "path1", extension: "jpg" },
-    };
+        const characterName = screen.getByText("Iron Man");
+        const characterImage = screen.getByAltText("Iron Man");
 
-    beforeEach(() => {
-        (useNavigate as jest.Mock).mockReturnValue(jest.fn());
+        expect(characterName).toBeInTheDocument();
+        expect(characterImage).toBeInTheDocument();
+        expect(characterImage).toHaveAttribute(
+            "src",
+            createMarvelImg({
+                path: mockCharacter.thumbnail.path,
+                extension: mockCharacter.thumbnail.extension,
+            })
+        );
     });
 
-    it("navigates to the correct character detail page when clicked", () => {
-        render(<CharacterItem character={mockCharacter} />);
+    it("should call the handleClick function when clicked", () => {
+        const handleClick = vi.fn();
+        render(
+            <CharacterListItem character={mockCharacter as Character} handleClick={handleClick} />
+        );
 
         const characterItem = screen.getByTestId("character-item");
         fireEvent.click(characterItem);
 
-        expect(useNavigate).toHaveBeenCalledWith(`/character/${mockCharacter.id}`);
+        expect(handleClick).toHaveBeenCalledTimes(1);
+        expect(handleClick).toHaveBeenCalledWith(mockCharacter.id);
     });
-
-    it("renders the character name correctly", () => {
-        render(<CharacterItem character={mockCharacter} />);
-
-        const characterName = screen.getByText(mockCharacter.name);
-
-        expect(characterName).toBeInTheDocument();
-    });
-
-    // Add more tests for other parts of the component if needed
 });

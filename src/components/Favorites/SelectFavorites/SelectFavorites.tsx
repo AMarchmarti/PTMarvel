@@ -13,7 +13,7 @@ interface SelectFavoritesProps {
     size?: IconSizeT;
 }
 
-const SelectFavorites = ({ className,character, size }: SelectFavoritesProps) => {
+const SelectFavorites = ({ className, character, size }: SelectFavoritesProps) => {
     const { toggleFavorite, isFavorite } = useContext(FavoritesContext)
     const [selected, setSelected] = useState(isFavorite(character.id.toString()))
 
@@ -23,7 +23,7 @@ const SelectFavorites = ({ className,character, size }: SelectFavoritesProps) =>
         toggleFavorite(character)
     }
 
-    return <div onClick={handleSeleceted}>
+    return <div onClick={handleSeleceted} data-testid="select-favorites">
         {selected ? <GlobalIcon iconName="HeartIconSelected" className={className} size={size} /> : <GlobalIcon iconName="HeartIconUnselected" size={size} />}
     </div>
 }

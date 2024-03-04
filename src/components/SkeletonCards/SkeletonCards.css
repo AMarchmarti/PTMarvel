@@ -59,7 +59,7 @@
 
 @media screen and (max-width: 480px) {
 	.skeleton-card {
-		padding: 0px;
+		padding: calc(var(--space) * 6) 0px;
 		gap: calc(var(--space) * 6);
 	}
 }

@@ -1,6 +1,4 @@
 
-import { useNavigate } from "react-router-dom";
-
 import { createMarvelImg } from "../../../utils/createMarvelImg";
 import SelectFavorites from "../../Favorites/SelectFavorites/SelectFavorites";
 
@@ -11,19 +9,14 @@ import "./CharacterListItem.css"
 
 interface CharacterItemProps {
     character: Character;
+    handleClick?: (id: string | number) => void;
 }
 
 
-const CharacterItem = ({ character }: CharacterItemProps) => {
-
-    const navigate = useNavigate()
-
-    const handleSelectedCharacter = () => {
-        navigate(`/character/${character.id}`)
-    }
+const CharacterItem = ({ character, handleClick }: CharacterItemProps) => {
 
     return (
-        <div className="character-item" onClick={handleSelectedCharacter}>
+        <div className="character-item" onClick={() => handleClick && handleClick(character.id)} data-testid="character-item">
             <img className='character-item__image' src={createMarvelImg({ path: character.thumbnail.path, extension: character.thumbnail.extension })} alt={character.name} />
 
             <div className='character-item__title'>

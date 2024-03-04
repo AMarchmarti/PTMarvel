@@ -1,30 +1,24 @@
 import { Suspense, useContext } from "react";
-import { Await, useLoaderData, useLocation, useSubmit } from "react-router-dom";
+import { Await, useLoaderData, useLocation, useNavigate, useSubmit } from "react-router-dom";
 
-import { FavoritesContext } from "../../context/FavoriteContext";
-import { useFilter } from "../../hooks/useFilter";
-import CharacterList from "../CharacterList/CharacterList";
-import SearchInput from "../SearchInput/SearchInput";
-import SkeletonCards from "../SkeletonCards/SkeletonCards";
+import { FavoritesContext } from "../../../context/FavoriteContext";
+import { useFilter } from "../../../hooks/useFilter";
+import CharacterList from "../../CharacterList/CharacterList";
+import SearchInput from "../../SearchInput/SearchInput";
+import SkeletonCards from "../../SkeletonCards/SkeletonCards";
 
-import type { Character } from "../../domain/models/Character";
+import type { Character } from "../../../domain/models/Character";
 
 const CharacterListPage = () => {
+    const location = useLocation();
+    const navigate = useNavigate();
+    const submit = useSubmit();
+    const { favorites } = useContext(FavoritesContext)
     const { data, search } = useLoaderData() as {
         data: Character[];
         search: string;
     };
 
-    const { favorites } = useContext(FavoritesContext)
-
-    const location = useLocation();
-
-    const filter = useFilter({
-        initialValue: search,
-        onChange: handleSearch,
-    });
-
-    const submit = useSubmit();
     function handleSearch(value: string) {
         const isFirstSearch = value === null;
         if (!!filter.ref && !!filter.ref.current) {
@@ -33,6 +27,13 @@ const CharacterListPage = () => {
             });
         }
     }
+
+    const filter = useFilter({
+        initialValue: search,
+        onChange: handleSearch,
+    });
+
+
     return (
         <>
             <main
@@ -48,14 +49,14 @@ const CharacterListPage = () => {
                             return (
                                 <>
                                     {characters.length !== 0 && <p style={{ fontSize: 12, textTransform: "uppercase" }}>{characters.length} results</p>}
-                                    <CharacterList characters={characters} />
+                                    <CharacterList characters={characters} navigate={navigate} />
                                 </>
                             )
                         }}
                     </Await>
                 </Suspense> : <>
                     <p style={{ fontSize: 12, textTransform: "uppercase" }}>{favorites.length} results</p>
-                    <CharacterList characters={favorites} />
+                    <CharacterList characters={favorites} navigate={navigate} />
                 </>}
             </main>
         </>
