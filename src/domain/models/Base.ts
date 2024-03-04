@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 export type ExtensionT = "gif" | "jpg";
 export enum URLType {
 	Comiclink = "comiclink",

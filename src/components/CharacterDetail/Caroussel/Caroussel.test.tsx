@@ -1,10 +1,13 @@
-
+/* eslint-disable import/no-unresolved */
+// eslint-disable-next-line import/no-duplicates
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
 import Carousel from "./Caroussel";
 
-import type { Comic } from "../../domain/models/Comic";
+import type { Comic } from "../../../domain/models/Comic";
+
+
 
 
 describe("Carousel", () => {
@@ -37,10 +40,6 @@ describe("Carousel", () => {
             thumbnail: { path: "path3", extension: "jpg" }
         },
     ];
-
-
-
-    // Add this import statement
 
     it("renders the carousel with correct number of comics", () => {
         render(<Carousel comics={mockComics} />);

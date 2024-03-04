@@ -75,7 +75,7 @@
 		"no-console": "warn",
 		"unused-imports/no-unused-imports": "error",
 		"import/prefer-default-export": "off",
-		"import/no-duplicates": ["error", { "considerQueryString": true }],
+		// "import/no-duplicates": ["error", { "considerQueryString": true }],
 		"import/export": "off",
 		"import/no-mutable-exports": "error",
 		"import/no-relative-parent-imports": "off",

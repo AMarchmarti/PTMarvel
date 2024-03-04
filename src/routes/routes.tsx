@@ -1,5 +1,6 @@
 import CharacterDetailPage from "../components/pages/CharacterDetailPage";
 import CharacterListPage from "../components/pages/CharacterListPage";
+import FavoriteCharactersPage from "../components/pages/FavoriteCharactersPage";
 
 import characterLoader from "./Loaders/characterLoader";
 import homeLoader from "./Loaders/homeLoader";
@@ -21,7 +22,6 @@ export const routes: RouteObject[] = [
   },
   {
     path: "/favorites",
-    element: <CharacterListPage />,
-    loader: characterLoader,
+    element: <FavoriteCharactersPage />,
   },
 ];
