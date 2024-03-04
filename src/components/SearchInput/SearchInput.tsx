@@ -15,11 +15,13 @@ const SearchInput = ({ handleSearch, initialValue, inputRef }: SearchInputProps)
         setQuerySearch(event.target.value);
         handleSearch(event);
     };
+
     return (
 
         <Form className="searchInput-container">
             <GlobalIcon iconName="SearchIcon" />
             <input id='search' className="input" name={querySearch.length ? "nameStartsWith" : ""} ref={inputRef} type="search" value={querySearch} placeholder="Search a character..." onChange={handleChange} />
+            
         </Form>
     );
 }

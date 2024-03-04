@@ -13,7 +13,6 @@ main {
 	max-width: 1512px;
 	display: flex;
 	flex-direction: column;
-	gap: 24px;
 	margin: auto;
 	padding: calc(var(--space) * 12);
 }
@@ -39,5 +38,8 @@ main {
 @media screen and (max-width: 834px) {
 	body {
 		max-width: var(--tablet);
+	}
+	main {
+		padding: calc(var(--space) * 4);
 	}
 }

@@ -1,6 +1,7 @@
-import { Suspense } from "react";
-import { Await, useLoaderData, useSubmit } from "react-router-dom";
+import { Suspense, useContext } from "react";
+import { Await, useLoaderData, useLocation, useSubmit } from "react-router-dom";
 
+import { FavoritesContext } from "../../context/FavoriteContext";
 import { useFilter } from "../../hooks/useFilter";
 import CharacterList from "../CharacterList/CharacterList";
 import SearchInput from "../SearchInput/SearchInput";
@@ -13,6 +14,10 @@ const CharacterListPage = () => {
         data: Character[];
         search: string;
     };
+
+    const { favorites } = useContext(FavoritesContext)
+
+    const location = useLocation();
 
     const filter = useFilter({
         initialValue: search,
@@ -28,7 +33,6 @@ const CharacterListPage = () => {
             });
         }
     }
-
     return (
         <>
             <main
@@ -38,15 +42,21 @@ const CharacterListPage = () => {
                     initialValue={filter.input}
                     handleSearch={filter.handleChange}
                 />
-                <Suspense fallback={<SkeletonCards />}>
+                {location.pathname !== "/favorites" ? <Suspense fallback={<SkeletonCards />}>
                     <Await resolve={data}>
-                        {(characters: Character[]) => (
-                            <>
-                                <CharacterList characters={characters} />
-                            </>
-                        )}
+                        {(characters: Character[]) => {
+                            return (
+                                <>
+                                    {characters.length !== 0 && <p style={{ fontSize: 12, textTransform: "uppercase" }}>{characters.length} results</p>}
+                                    <CharacterList characters={characters} />
+                                </>
+                            )
+                        }}
                     </Await>
-                </Suspense>
+                </Suspense> : <>
+                    <p style={{ fontSize: 12, textTransform: "uppercase" }}>{favorites.length} results</p>
+                    <CharacterList characters={favorites} />
+                </>}
             </main>
         </>
     );
