@@ -1,5 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
 import { useDebounce } from "./useDebounce";
+
+import type React from "react";
 
 type HookType = {
   initialValue: string;

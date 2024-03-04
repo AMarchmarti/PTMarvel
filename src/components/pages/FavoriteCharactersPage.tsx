@@ -1,6 +1,7 @@
 import { useContext } from "react"
-import CharacterList from "../CharacterList/CharacterList"
+
 import { FavoritesContext } from "../../context/FavoriteContext"
+import CharacterList from "../CharacterList/CharacterList"
 
 
 const FavoriteCharactersPage = () => {

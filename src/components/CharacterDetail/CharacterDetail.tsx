@@ -1,10 +1,11 @@
 
 import { createMarvelImg } from "../../utils/createMarvelImg";
-import './CharacterDetail.css'
+import "./CharacterDetail.css"
 import Carousel from "../Caroussel/Caroussel";
 import SelectFavorites from "../Favorites/SelectFavorites/SelectFavorites";
-import { Comic } from "../../domain/models/Comic";
-import { Character } from "../../domain/models/Character";
+
+import type { Character } from "../../domain/models/Character";
+import type { Comic } from "../../domain/models/Comic";
 
 interface CharacterDetailProps {
     character: Character

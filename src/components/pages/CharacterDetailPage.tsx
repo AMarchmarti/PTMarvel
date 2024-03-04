@@ -1,9 +1,9 @@
+import { Suspense, lazy } from "react";
 import { Await, useLoaderData } from "react-router-dom";
 
-import { Suspense, lazy } from "react";
 
-import { Character } from "../../domain/models/Character";
-import { Comic } from "../../domain/models/Comic";
+import type { Character } from "../../domain/models/Character";
+import type { Comic } from "../../domain/models/Comic";
 
 const CharacterDetail = lazy(() => import("../CharacterDetail/CharacterDetail"))
 
@@ -16,8 +16,8 @@ const CharacterDetailPage = () => {
     
         <Suspense fallback={<div></div>}>
             <Await resolve={Promise.all([data.characterPromise, data.comicsPromise]).then((value) => value)} >
-                {(data: [Character, Comic[]]) => 
-                    <CharacterDetail character={data[0]} comics={data[1]} />
+                {(value: [Character, Comic[]]) => 
+                    <CharacterDetail character={value[0]} comics={value[1]} />
                 }
                 </Await>
         </Suspense>

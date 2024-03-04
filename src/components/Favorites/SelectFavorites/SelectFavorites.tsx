@@ -1,8 +1,11 @@
 import { useContext, useState } from "react"
+
 import { FavoritesContext } from "../../../context/FavoriteContext"
-import { IconSizeT } from "../../Icons/IconProps.interface";
 import GlobalIcon from "../../Icons/GlobalIcon";
-import { Character } from "../../../domain/models/Character";
+
+import type { Character } from "../../../domain/models/Character";
+import type { IconSizeT } from "../../Icons/IconProps.interface";
+
 
 interface SelectFavoritesProps {
     className?: string;

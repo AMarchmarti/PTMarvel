@@ -1,9 +1,12 @@
-import { RouteObject } from "react-router-dom";
-import homeLoader from "./Loaders/homeLoader";
-import characterLoader from "./Loaders/characterLoader";
-
-import CharacterListPage from "../components/pages/CharacterListPage";
 import CharacterDetailPage from "../components/pages/CharacterDetailPage";
+import CharacterListPage from "../components/pages/CharacterListPage";
+
+import characterLoader from "./Loaders/characterLoader";
+import homeLoader from "./Loaders/homeLoader";
+
+import type { RouteObject } from "react-router-dom";
+
+
 
 export const routes: RouteObject[] = [
   {

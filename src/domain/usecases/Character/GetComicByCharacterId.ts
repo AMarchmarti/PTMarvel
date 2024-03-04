@@ -1,5 +1,5 @@
-import { Comic } from "../../models/Comic";
-import { CharacterRepository } from "../../repositories/CharacterRepository";
+import type { Comic } from "../../models/Comic";
+import type { CharacterRepository } from "../../repositories/CharacterRepository";
 
 export class GetComicByCharacterId {
   constructor(private characterRepository: CharacterRepository) {}

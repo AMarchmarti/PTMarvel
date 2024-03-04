@@ -1,11 +1,12 @@
 import { LIMIT_CHARACTERS, LIMIT_COMICS } from "../../../constants/Global";
-import { Character, CharacterFilter } from "../../../domain/models/Character";
-import { Comic } from "../../../domain/models/Comic";
-import { CharacterRepository } from "../../../domain/repositories/CharacterRepository";
-import { get } from "../../utils/HttpsService";
 import { appendFilter } from "../../utils/appendFilter";
-
 import { concatApiKey } from "../../utils/concatApiKey";
+import { get } from "../../utils/HttpsService";
+
+import type { Character, CharacterFilter } from "../../../domain/models/Character";
+import type { Comic } from "../../../domain/models/Comic";
+import type { CharacterRepository } from "../../../domain/repositories/CharacterRepository";
+
 
 export class CharacterService implements CharacterRepository {
   private readonly API_URL: string | undefined = `${

@@ -1,10 +1,12 @@
 
-import React from 'react';
-import { Character } from '../../domain/models/Character';
-import CharacterItem from './CharacterListItem/CharacterListItem';
+import React from "react";
 
-import './CharacterList.css';
-import { createMarvelImg } from '../../utils/createMarvelImg';
+import CharacterItem from "./CharacterListItem/CharacterListItem";
+
+import type { Character } from "../../domain/models/Character";
+
+
+import "./CharacterList.css";
 
 
 interface CharacterListProps {

@@ -1,6 +1,8 @@
 import * as Icons from "./IndexIcon";
-import IconProps, { WeightIconT } from "./IconProps.interface";
-import { IconSizeT } from "./IconProps.interface";
+
+import type { WeightIconT , IconSizeT } from "./IconProps.interface";
+import type IconProps from "./IconProps.interface";
+
 
 export type IconNameT = keyof typeof Icons;
 
@@ -17,14 +19,14 @@ interface GlobalIconI extends IconProps {
     weightFont?: WeightIconT;
 }
 
-const GlobalIcon: React.FC<GlobalIconI> = ({
+const GlobalIcon = ({
     className,
     iconName,
     onClick,
     size,
     weightFont,
     strokeWidth,
-}) => {
+}: GlobalIconI) => {
     const sizeIcon: SizeIconT = {
         L: "80",
         M: "60",

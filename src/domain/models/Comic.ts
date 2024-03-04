@@ -1,4 +1,4 @@
-import { Stories, TextObject, Thumbnail } from "./Base";
+import type { Stories, TextObject, Thumbnail } from "./Base";
 
 export interface Comic {
   id: string | number;

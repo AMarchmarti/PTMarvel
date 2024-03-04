@@ -53,6 +53,8 @@
 
 .character--page__comics {
   height: 526.8px;
+  max-width: 960px;
+  margin: auto;
   top: 403.94px;
   padding: 0px 48px;
 }

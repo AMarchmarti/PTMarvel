@@ -1,4 +1,4 @@
-import { Stories, Thumbnail } from "./Base";
+import type { Stories, Thumbnail } from "./Base";
 
 export interface Character {
   id: number | string;

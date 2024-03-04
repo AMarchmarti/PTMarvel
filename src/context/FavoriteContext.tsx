@@ -1,5 +1,6 @@
-import React, { createContext, useState, useEffect } from 'react';
-import { Character } from '../domain/models/Character';
+import React, { createContext, useState, useEffect } from "react";
+
+import type { Character } from "../domain/models/Character";
 
 
 interface FavoritesContextType {
@@ -33,12 +34,12 @@ const FavoritesProvider: React.FC<{ children: React.ReactNode }> = ({ children }
             newFavorites = [...favorites, favorite];
         }
         setFavorites(newFavorites);
-        localStorage.setItem('favorites', JSON.stringify(newFavorites));
+        localStorage.setItem("favorites", JSON.stringify(newFavorites));
     };
 
 
     useEffect(() => {
-        const storedFavorites = localStorage.getItem('favorites');
+        const storedFavorites = localStorage.getItem("favorites");
         if (storedFavorites) {
             setFavorites(JSON.parse(storedFavorites));
         }

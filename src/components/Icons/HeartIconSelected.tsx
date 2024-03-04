@@ -1,4 +1,4 @@
-import IconProps from "./IconProps.interface";
+import type IconProps from "./IconProps.interface";
 
 const HeartIconSelected = ({ width = "12", height = "10.84", className, color = "#EC1D24", onClick }: IconProps) => {
     return (

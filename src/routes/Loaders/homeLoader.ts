@@ -1,4 +1,5 @@
 import { defer } from "react-router-dom";
+
 import { GetAllCharacters } from "../../domain/usecases/Character/GetAllCharacters";
 import { CharacterService } from "../../infrastructure/services/Character/CharacterService";
 

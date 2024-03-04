@@ -1,17 +1,18 @@
 
-import React from 'react';
-import './ComicCard.css';
+import React from "react";
+import "./ComicCard.css";
 
 interface ComicCardProps {
+    cardRef?: React.RefObject<HTMLDivElement>;
     imageUrl: string;
     name: string;
     year?: string;
     handleClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }
 
-const ComicCard: React.FC<ComicCardProps> = ({ imageUrl, name, year, handleClick }) => {
+const ComicCard: React.FC<ComicCardProps> = ({ imageUrl, cardRef, name, year, handleClick }) => {
     return (
-        <div className="comic-card" onDrag={handleClick}>
+        <div className="comic-card" onClick={handleClick} ref={cardRef}>
             <img src={imageUrl} alt={`comic-card__${name}`} />
             <p>{name}</p>
             <span>{year}</span>
