@@ -12,7 +12,7 @@ interface ComicCardProps {
 
 const ComicCard: React.FC<ComicCardProps> = ({ imageUrl, cardRef, name, year, handleClick }) => {
     return (
-        <div className="comic-card" onClick={handleClick} ref={cardRef}>
+        <div className="comic-card" onClick={handleClick} ref={cardRef} >
             <img src={imageUrl} alt={`comic-card__${name}`} />
             <p>{name}</p>
             <span>{year}</span>

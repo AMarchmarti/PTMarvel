@@ -1,16 +1,34 @@
 @import "./variables.css";
 
 body {
-  max-width: var(--desktop);
-  height: 982px;
-  top: 100px;
-  left: 100px;
-  margin: auto;
-  font-family: var(--font-family-primary);
+	max-width: var(--desktop);
+	height: 982px;
+	top: 100px;
+	left: 100px;
+	margin: auto;
+	font-family: var(--font-family-primary);
+}
+
+::-webkit-scrollbar {
+	width: 5px;
+	background-color: rgba(0, 0, 0, 0.5);
+	border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: var(--marvel-red);
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+::-webkit-scrollbar-track {
+	background-color: rgba(0, 0, 0, 0.2);
+	border-radius: 5px;
+	cursor: pointer;
 }
 
 @media screen and (max-width: 834px) {
-  body {
-    max-width: var(--tablet);
-  }
+	body {
+		max-width: var(--tablet);
+	}
 }

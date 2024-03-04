@@ -1,20 +1,20 @@
 .character-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-auto-rows: auto;
-  padding: 0px calc(var(--space) * 12);
-  gap: calc(var(--space) * 4);
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	grid-auto-rows: auto;
+	padding: 0px calc(var(--space) * 12);
+	gap: calc(var(--space) * 4);
 }
 
-@media screen and (max-width: 768px) {
-  .character-list {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  }
+@media screen and (max-width: 834px) {
+	.character-list {
+		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	}
 }
 
 @media screen and (max-width: 480px) {
-  .character-list {
-    padding: 0px calc(var(--space) * 6);
-    gap: calc(var(--space) * 6);
-  }
+	.character-list {
+		padding: 0px calc(var(--space) * 6);
+		gap: calc(var(--space) * 6);
+	}
 }

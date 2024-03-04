@@ -1,8 +1,11 @@
 
-import { createMarvelImg } from "../../utils/createMarvelImg";
+
 import "./CharacterDetail.css"
-import Carousel from "../Caroussel/Caroussel";
+
+import { createMarvelImg } from "../../utils/createMarvelImg";
 import SelectFavorites from "../Favorites/SelectFavorites/SelectFavorites";
+
+import Carousel from "./Caroussel/Caroussel";
 
 import type { Character } from "../../domain/models/Character";
 import type { Comic } from "../../domain/models/Comic";
@@ -16,7 +19,7 @@ const CharacterDetail = ({ character, comics }: CharacterDetailProps) => {
         <div>
             <div className="character--page__title">
                 <div className="character--page__resume">
-                    <img className="character--page__img" src={createMarvelImg({ path: character.thumbnail.path, extension: character.thumbnail.extension })} />
+                    <img className="character--page__img" src={createMarvelImg({ path: character.thumbnail.path, extension: character.thumbnail.extension })} alt={character.name} />
                     <div className="character--page__info">
                         <div className="character--page__info__title">
                             <h1>{character.name}</h1>

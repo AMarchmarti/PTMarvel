@@ -2,17 +2,17 @@
 import React, { useRef, useState } from "react";
 
 import "./Caroussel.css";
-import { createMarvelImg } from "../../utils/createMarvelImg";
-import ComicCard from "../ComicCard/ComicCard";
 
-import type { Comic } from "../../domain/models/Comic";
+import { createMarvelImg } from "../../../utils/createMarvelImg";
 
+import ComicCard from "./ComicCard/ComicCard";
+
+import type { Comic } from "../../../domain/models/Comic";
 
 interface CarouselProps {
     comics: Comic[];
 
 }
-
 
 const Carousel: React.FC<CarouselProps> = ({ comics }) => {
     const [scrollLeft, setScrollLeft] = useState(0);

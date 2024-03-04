@@ -1,93 +1,95 @@
-@import "../../../variables.css";
+@import "@/variables.css";
 
 .character-item {
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  width: var(--card-width-desktop);
-  min-height: 245.97px;
-  cursor: pointer;
+	display: flex;
+	position: relative;
+	flex-direction: column;
+	width: var(--card-width-desktop);
+	min-height: 245.97px;
+	cursor: pointer;
+	margin: 0px;
 }
 
 .character-item:hover {
-  transform: scale(1.05);
-  transition: transform 0.3s ease;
+	transition: transform 0.3s ease;
 }
 
 .character-item__image {
-  width: var(--card-width-desktop);
-  min-height: 189.97px;
-  max-height: 189.97px;
-  object-fit: cover;
+	width: var(--card-width-desktop);
+	min-height: 189.97px;
+	max-height: 189.97px;
+	object-fit: cover;
 }
 
 .character-item__title {
-  position: relative;
+	position: relative;
 }
 
 .character-item__title hr {
-  width: 100%;
-  height: 5.38px;
-  background-color: var(--marvel-red);
-  margin: 0;
-  border: 0;
+	width: 100%;
+	height: 5.38px;
+	background-color: var(--marvel-red);
+	margin: 0;
+	border: 0;
 }
 
 .character-item__title::after {
-  content: "";
-  position: absolute;
-  bottom: -1px;
-  right: -1px;
-  width: 12.86px;
-  height: 12.86px;
-  background-color: #fff;
-  clip-path: polygon(100% 0, 0 100%, 100% 100%);
+	content: "";
+	position: absolute;
+	bottom: -1px;
+	right: -1px;
+	width: 12.86px;
+	height: 12.86px;
+	background-color: #fff;
+	clip-path: polygon(100% 0, 0 100%, 100% 100%);
 }
 
 .character-item__title--inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 
-  background: linear-gradient(black 50%, var(--marvel-red) 50%);
-  padding: calc(var(--space) * 2) var(--space);
-  color: var(--primary-color);
-  text-align: center;
-  background-size: 100% 200%;
-  transition: 0.5s;
+	background: linear-gradient(black 50%, var(--marvel-red) 50%);
+	padding: calc(var(--space) * 4);
+	color: var(--primary-color);
+	text-align: center;
+	background-size: 100% 200%;
+	transition: 0.5s;
 }
 
 .character-item:hover .character-item__title--inner {
-  background-position: 100% -100%;
+	background-position: 100% -100%;
 }
 
 .character-item:hover .character-item__title--inner--icon path {
-  fill: var(--primary-color);
-  transition: 0.5s;
+	fill: var(--primary-color);
+	transition: 0.5s;
 }
 
 .character-item__title--inner p {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 16px;
-  letter-spacing: 0em;
-  text-align: left;
-  overflow-wrap: break-word;
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 16px;
+	letter-spacing: 0em;
+	text-align: left;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .character-item__title--inner div {
-  cursor: pointer;
+	cursor: pointer;
 }
 
 .character-item__title--inner {
-  cursor: pointer;
+	cursor: pointer;
 }
 @media screen and (max-width: 768px) {
-  .character-item {
-    width: var(--card-width);
-  }
+	.character-item {
+		width: var(--card-width);
+	}
 
-  .character-item__image {
-    width: var(--card-width);
-  }
+	.character-item__image {
+		width: var(--card-width);
+	}
 }

@@ -1,43 +1,67 @@
+@import "@/variables.css";
 .skeleton-card {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  padding: 0px calc(var(--space) * 12);
-  gap: calc(var(--space) * 4);
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	grid-auto-rows: auto;
+	padding: 0px calc(var(--space) * 12);
+	gap: calc(var(--space) * 4);
 }
 
 .skeleton-card-item {
-  position: relative;
-  background: black;
-  width: var(--card-width-desktop);
-  min-height: 245.97px;
-  overflow: hidden;
-  transition: background-color 0.3s ease;
+	position: relative;
+	background: black;
+	width: var(--card-width-desktop);
+	min-height: 245.97px;
+	height: 271px;
+	overflow: hidden;
+	transition: background-color 0.3s ease;
 }
 .skeleton-card-item::after {
-  content: "";
-  position: absolute;
-  bottom: -1px;
-  right: -1px;
-  width: 12.86px;
-  height: 12.86px;
-  background-color: #fff;
-  clip-path: polygon(100% 0, 0 100%, 100% 100%);
+	content: "";
+	position: absolute;
+	bottom: -1px;
+	right: -1px;
+	width: 12.86px;
+	height: 12.86px;
+	background-color: #fff;
+	clip-path: polygon(100% 0, 0 100%, 100% 100%);
 }
 
 .image-placeholder {
-  width: var(--card-width-desktop);
-  min-height: 189.97px;
-  max-height: 189.97px;
-  background: linear-gradient(135deg, #e0e0e0, #f0f0f0);
-  transition: background-color 0.3s;
+	width: var(--card-width-desktop);
+	min-height: 189.97px;
+	max-height: 189.97px;
+	background: linear-gradient(135deg, #e0e0e0, #f0f0f0);
+	transition: background-color 0.3s;
 }
 
 .text-placeholder {
-  background: linear-gradient(135deg, #e0e0e0, #f0f0f0);
-  height: 20px;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-  display: flex;
-  align-self: center;
-  margin: calc(var(--space) * 2);
+	background: linear-gradient(135deg, #e0e0e0, #f0f0f0);
+	height: 20px;
+	border-radius: 4px;
+	transition: background-color 0.3s;
+	display: flex;
+	align-self: center;
+	margin: calc(var(--space) * 2);
+}
+
+@media screen and (max-width: 834px) {
+	.skeleton-card {
+		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	}
+
+	.skeleton-card-item {
+		width: var(--card-width);
+	}
+
+	.image-placeholder {
+		width: var(--card-width);
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.skeleton-card {
+		padding: 0px calc(var(--space) * 6);
+		gap: calc(var(--space) * 6);
+	}
 }
