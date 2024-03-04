@@ -57,9 +57,6 @@
     "transformIgnorePatterns": [
       "node_modules/(?!variables/.*)"
     ],
-    "moduleNameMapper": {
-      "axios": "axios/dist/node/axios.cjs"
-    },
     "setupFiles": [
       "jest-localstorage-mock"
     ],
