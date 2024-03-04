@@ -45,7 +45,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,md}": [
-      "pnpm run lint-fix",
+      "pnpm run lint:fix",
       "prettier --write"
     ]
   },
