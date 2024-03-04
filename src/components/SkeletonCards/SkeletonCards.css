@@ -1,9 +1,8 @@
 @import "@/variables.css";
 .skeleton-card {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
 	grid-auto-rows: auto;
-	padding: 0px calc(var(--space) * 12);
 	gap: calc(var(--space) * 4);
 }
 

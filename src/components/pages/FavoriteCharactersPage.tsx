@@ -6,7 +6,9 @@ import CharacterList from "../CharacterList/CharacterList"
 
 const FavoriteCharactersPage = () => {
     const { favorites } = useContext(FavoritesContext)
-    return <CharacterList characters={favorites} />
+    return <main>
+        <CharacterList characters={favorites} />
+    </main>
 }
 
 export default FavoriteCharactersPage;

@@ -1,12 +1,29 @@
-@import "../../variables.css";
+@import "@/variables.css";
 
-/* input[type="text"] {
-  background-color: transparent;
-  border: 0px;
-  outline: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  color: transparent;
-  cursor: default;
-} */
+.searchInput-container {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 27px;
+	padding: 0px 0px 8px 0px;
+	border-bottom: 1px solid black;
+	gap: 12px;
+}
+
+.icon {
+	font-size: 24px; /* Tamaño del icono ajustable según tus necesidades */
+	margin-right: 10px;
+}
+
+.input {
+	border: none;
+	outline: none;
+	font-size: var(--font-size);
+	width: 100%;
+  text-transform: uppercase;
+}
+
+.input::placeholder {
+	color: #999;
+	font-size: var(--font-size);
+}

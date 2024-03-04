@@ -1,0 +1,31 @@
+@import "@/variables.css";
+
+header {
+	display: flex;
+	align-items: center;
+	background-color: black;
+	max-width: var(--desktop);
+	height: 84px;
+	padding: calc(var(--space) * 4) calc(var(--space) * 12);
+	justify-content: space-between;
+}
+
+.header-favorites {
+	display: flex;
+	align-items: center;
+	width: 56px;
+	height: 37.68px;
+	padding: calc(var(--space) * 2);
+	gap: calc(var(--space) * 2);
+	background-color: transparent;
+	border: none;
+	color: var(--marvel-red);
+}
+
+.header-logo {
+   cursor: pointer;
+}
+
+.header-favorites span {
+    font-size: var(--font-size);
+}

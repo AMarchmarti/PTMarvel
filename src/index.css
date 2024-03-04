@@ -9,6 +9,15 @@ body {
 	font-family: var(--font-family-primary);
 }
 
+main {
+	max-width: 1512px;
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	margin: auto;
+	padding: calc(var(--space) * 12);
+}
+
 ::-webkit-scrollbar {
 	width: 5px;
 	background-color: rgba(0, 0, 0, 0.5);

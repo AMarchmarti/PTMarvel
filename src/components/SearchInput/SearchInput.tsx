@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./SearchInput.css";
 import { Form } from "react-router-dom";
 
+import GlobalIcon from "../Icons/GlobalIcon";
+
 interface SearchInputProps {
     handleSearch: (event: React.ChangeEvent<HTMLInputElement>) => void;
     initialValue: string;
@@ -15,8 +17,9 @@ const SearchInput = ({ handleSearch, initialValue, inputRef }: SearchInputProps)
     };
     return (
 
-        <Form>
-            <input id='search' name={querySearch.length ? "nameStartsWith" : ""} ref={inputRef} type="search" value={querySearch} placeholder="Search" onChange={handleChange} />
+        <Form className="searchInput-container">
+            <GlobalIcon iconName="SearchIcon" />
+            <input id='search' className="input" name={querySearch.length ? "nameStartsWith" : ""} ref={inputRef} type="search" value={querySearch} placeholder="Search a character..." onChange={handleChange} />
         </Form>
     );
 }

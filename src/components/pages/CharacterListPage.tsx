@@ -31,15 +31,7 @@ const CharacterListPage = () => {
 
     return (
         <>
-            <div
-                style={{
-                    maxWidth: 1512,
-                    display: "flex",
-                    flexDirection: "column",
-                    padding: "48px 0px",
-                    gap: "24px",
-                    margin: "auto",
-                }}
+            <main
             >
                 <SearchInput
                     inputRef={filter.ref}
@@ -55,7 +47,7 @@ const CharacterListPage = () => {
                         )}
                     </Await>
                 </Suspense>
-            </div>
+            </main>
         </>
     );
 };

@@ -13,7 +13,8 @@ const CharacterDetailPage = () => {
     const { data } = useLoaderData() as { data: { characterPromise: Promise<Character>, comicsPromise: Promise<Comic[]> } };
 
     return (
-    
+
+
         <Suspense fallback={<div></div>}>
             <Await resolve={Promise.all([data.characterPromise, data.comicsPromise]).then((value) => value)} >
                 {(value: [Character, Comic[]]) => 
@@ -21,6 +22,7 @@ const CharacterDetailPage = () => {
                 }
                 </Await>
         </Suspense>
+
     );
 }
 

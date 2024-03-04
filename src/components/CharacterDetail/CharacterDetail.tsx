@@ -31,7 +31,9 @@ const CharacterDetail = ({ character, comics }: CharacterDetailProps) => {
             </div>
             <div className="character--page__comics">
                 <h2>Comics</h2>
-                <Carousel comics={comics} />
+                {comics.length ?
+                    <Carousel comics={comics} />
+                    : <h2>No Results</h2>}
             </div>
         </div >
 
