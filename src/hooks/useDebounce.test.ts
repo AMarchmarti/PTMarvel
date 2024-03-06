@@ -5,7 +5,6 @@ import { vi } from "vitest";
 import { useDebounce } from "./useDebounce";
 
 describe("useDebounce", () => {
-
 	it("should update debounced value after delay", () => {
 		vi.useFakeTimers();
 		const value = "test";
@@ -23,7 +22,6 @@ describe("useDebounce", () => {
 		vi.useRealTimers();
 	});
 
-	
 	it("should set debounced value as undefined when input value is undefined", () => {
 		vi.useFakeTimers();
 		const value = undefined;
@@ -41,7 +39,6 @@ describe("useDebounce", () => {
 		vi.useRealTimers();
 	});
 
-	
 	it("should update debounced value immediately when delay is negative", () => {
 		vi.useFakeTimers();
 		const value = "test";

@@ -45,7 +45,6 @@ describe("Carousel", () => {
 		expect(comicCards).toHaveLength(mockComics.length);
 	});
 
-
 	it("should render the carousel with correct number of comics", () => {
 		render(<Carousel comics={mockComics} />);
 
@@ -56,7 +55,6 @@ describe("Carousel", () => {
 		expect(comicCards).toHaveLength(mockComics.length);
 	});
 
-
 	it("should render the carousel with no comics", () => {
 		render(<Carousel comics={[]} />);
 
@@ -64,11 +62,9 @@ describe("Carousel", () => {
 		const comicCards = screen.queryAllByTestId("comic-card");
 
 		expect(carousel).not.toBeNull();
-		expect(carousel).toBeInTheDocument()
+		expect(carousel).toBeInTheDocument();
 		expect(comicCards).toHaveLength(0);
-
 	});
-
 
 	it("should render the carousel with one comic", () => {
 		const mockComic: Comic[] = [
@@ -91,5 +87,4 @@ describe("Carousel", () => {
 		expect(carousel).toBeInTheDocument();
 		expect(comicCards).toHaveLength(1);
 	});
-
 });

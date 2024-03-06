@@ -23,9 +23,9 @@ header {
 }
 
 .header-logo {
-   cursor: pointer;
+	cursor: pointer;
 }
 
 .header-favorites span {
-    font-size: var(--font-size);
+	font-size: var(--font-size);
 }

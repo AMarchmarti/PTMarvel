@@ -29,5 +29,4 @@ describe("appendFilter", () => {
 
 		expect(result.searchParams.get("name")).toBeNull();
 	});
-
 });

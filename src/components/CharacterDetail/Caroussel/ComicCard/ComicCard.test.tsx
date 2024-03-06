@@ -3,7 +3,6 @@ import { render, screen } from "@testing-library/react";
 import ComicCard from "./ComicCard";
 
 describe("ComicCard", () => {
-
 	it("should createRoot the comic card with the correct image, name, and year", () => {
 		const mockImageUrl = "https://example.com/image.jpg";
 		const mockName = "Comic 1";
@@ -14,7 +13,7 @@ describe("ComicCard", () => {
 				imageUrl={mockImageUrl}
 				name={mockName}
 				year={mockYear}
-				handleClick={() => { }}
+				handleClick={() => {}}
 			/>,
 		);
 
@@ -27,7 +26,6 @@ describe("ComicCard", () => {
 		expect(comicYear).toBeInTheDocument();
 	});
 
-
 	it("should render the comic card without a year", () => {
 		const mockImageUrl = "https://example.com/image.jpg";
 		const mockName = "Comic 1";
@@ -36,7 +34,7 @@ describe("ComicCard", () => {
 			<ComicCard
 				imageUrl={mockImageUrl}
 				name={mockName}
-				handleClick={() => { }}
+				handleClick={() => {}}
 			/>,
 		);
 
@@ -48,7 +46,6 @@ describe("ComicCard", () => {
 		expect(comicName).toBeInTheDocument();
 		expect(comicYear).not.toBeInTheDocument();
 	});
-
 
 	it("should render the comic card without a handleClick function", () => {
 		const mockImageUrl = "https://example.com/image.jpg";

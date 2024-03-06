@@ -35,7 +35,7 @@ const Carousel = ({ comics }: CarouselProps) => {
 
 		const clickedIndex: number = Math.floor(
 			(e.clientX - carouselRef.current!.getBoundingClientRect().left) /
-			cardWidth,
+				cardWidth,
 		);
 
 		if (clickedIndex >= 0 && clickedIndex <= numCards - 1) {

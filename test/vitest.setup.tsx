@@ -21,5 +21,5 @@ export {
 	waitFor,
 	getByRole,
 	within,
-	act
+	act,
 } from "@testing-library/react";

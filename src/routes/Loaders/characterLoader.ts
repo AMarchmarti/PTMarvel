@@ -11,9 +11,9 @@ const getCharacterById = new GetCharacterById(characterService);
 const getComicByCharacterId = new GetComicByCharacterId(characterService);
 
 const characterLoader = async ({ params }: { params: Params }) => {
-  const characterPromise = getCharacterById.execute(params.id as string);
-  const comicsPromise = getComicByCharacterId.execute(params.id as string);
-  return defer({ data: { characterPromise, comicsPromise } });
+	const characterPromise = getCharacterById.execute(params.id as string);
+	const comicsPromise = getComicByCharacterId.execute(params.id as string);
+	return defer({ data: { characterPromise, comicsPromise } });
 };
 
 export default characterLoader;

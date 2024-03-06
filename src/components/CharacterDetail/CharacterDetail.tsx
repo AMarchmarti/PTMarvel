@@ -39,7 +39,7 @@ const CharacterDetail = ({ character, comics }: CharacterDetailProps) => {
 				{comics.length ? (
 					<Carousel comics={comics} />
 				) : (
-					<h2 data-testid='character-detail-noComics'>No Results</h2>
+					<h2 data-testid="character-detail-noComics">No Results</h2>
 				)}
 			</div>
 		</div>

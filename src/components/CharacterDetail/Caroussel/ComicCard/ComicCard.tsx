@@ -17,7 +17,12 @@ const ComicCard: React.FC<ComicCardProps> = ({
 	handleClick,
 }: ComicCardProps) => {
 	return (
-		<div className="comic-card" onClick={handleClick} ref={cardRef} data-testid="comic-card">
+		<div
+			className="comic-card"
+			onClick={handleClick}
+			ref={cardRef}
+			data-testid="comic-card"
+		>
 			<img src={imageUrl} alt={`comic-card__${name}`} />
 			<p>{name}</p>
 			<span>{year}</span>
