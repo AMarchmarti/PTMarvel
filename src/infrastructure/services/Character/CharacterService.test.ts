@@ -1,11 +1,11 @@
 import { vi } from "vitest";
 
+import { concatApiKey } from "../../utils/concatApiKey";
 import { get } from "../../utils/HttpsService";
 
 import { CharacterService } from "./CharacterService";
 
 import type { Mock } from "vitest";
-import { concatApiKey } from "../../utils/concatApiKey";
 
 vi.mock("../../utils/HttpsService");
 
