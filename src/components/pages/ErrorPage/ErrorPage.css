@@ -1,0 +1,71 @@
+@import "@/variables.css";
+.error-page {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 20px;
+	text-align: center;
+}
+
+.error-message {
+	margin-bottom: 20px;
+}
+
+.error-message h1 {
+	font-size: 24px;
+	color: #ff0000;
+}
+
+.error-message span {
+	font-size: 18px;
+	color: #333333;
+}
+
+.error-message p {
+	font-size: 18px;
+	color: #333333;
+}
+
+.error-link {
+	display: inline-block;
+	margin-top: 20px;
+	color: var(--marvel-red);
+	text-decoration: none;
+}
+
+.error-link:hover {
+	text-decoration: underline;
+}
+
+.button-error {
+	display: flex;
+	justify-content: center;
+	gap: var(--space);
+}
+
+.back-button {
+	display: inline-block;
+	margin-top: 20px;
+	padding: 10px 20px;
+	background-color: var(--marvel-red);
+	color: #ffffff;
+	text-decoration: none;
+	border-radius: 5px;
+}
+
+.back-button:hover {
+	background-color: #555555;
+}
+
+.refresh-button {
+	display: inline-block;
+	margin-top: 20px;
+	padding: 10px 20px;
+	background-color: var(--marvel-red);
+	color: #ffffff;
+	text-decoration: none;
+	border-radius: 5px;
+}
+
+.refresh-button:hover {
+	background-color: #555555;
+}

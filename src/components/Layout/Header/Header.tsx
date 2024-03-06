@@ -35,6 +35,7 @@ const Header = () => {
 				onClick={() => handleNavigate("favorites")}
 				disabled={disabled}
 				style={{ cursor: !disabled ? "pointer" : "not-alloed" }}
+				aria-label="Go to Favorites"
 				data-testid="header-favorite-button"
 			>
 				<GlobalIcon iconName="HeartIconSelected" size="XS" />

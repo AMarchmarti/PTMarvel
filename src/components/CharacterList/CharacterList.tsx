@@ -19,15 +19,24 @@ const CharacterList: React.FC<CharacterListProps> = ({
 		navigate(`/character/${id}`);
 	};
 	return (
-		<div className="character-list">
-			{characters.map((character, index) => (
-				<CharacterItem
-					key={index}
-					character={character}
-					handleClick={handleSelectedCharacter}
-				/>
-			))}
-		</div>
+		<>
+			<p
+				className="character-list__results"
+				data-testid="character-list__results"
+			>
+				{characters.length} results
+			</p>
+
+			<ul className="character-list">
+				{characters.map((character, index) => (
+					<CharacterItem
+						key={index}
+						character={character}
+						handleClick={handleSelectedCharacter}
+					/>
+				))}
+			</ul>
+		</>
 	);
 };
 

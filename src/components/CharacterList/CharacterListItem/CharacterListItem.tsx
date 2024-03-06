@@ -12,7 +12,7 @@ interface CharacterItemProps {
 
 const CharacterItem = ({ character, handleClick }: CharacterItemProps) => {
 	return (
-		<div
+		<li
 			className="character-item"
 			onClick={() => handleClick && handleClick(character.id)}
 			data-testid="character-item"
@@ -36,7 +36,7 @@ const CharacterItem = ({ character, handleClick }: CharacterItemProps) => {
 					/>
 				</div>
 			</div>
-		</div>
+		</li>
 	);
 };
 

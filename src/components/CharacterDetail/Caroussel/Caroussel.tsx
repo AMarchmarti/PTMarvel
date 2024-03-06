@@ -51,7 +51,7 @@ const Carousel = ({ comics }: CarouselProps) => {
 			onClick={handleCarouselClick}
 			onScroll={handleScroll}
 		>
-			<div className="carousel">
+			<ul className="carousel">
 				{comics.length &&
 					comics.map((comic: Comic, index: number) => (
 						<ComicCard
@@ -65,7 +65,7 @@ const Carousel = ({ comics }: CarouselProps) => {
 							handleClick={() => handleCardClick(index)}
 						/>
 					))}
-			</div>
+			</ul>
 			<div className="scrollbar" style={{ left: scrollLeft }}></div>
 		</div>
 	);

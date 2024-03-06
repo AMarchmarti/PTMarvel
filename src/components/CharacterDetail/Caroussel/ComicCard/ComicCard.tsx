@@ -17,16 +17,18 @@ const ComicCard: React.FC<ComicCardProps> = ({
 	handleClick,
 }: ComicCardProps) => {
 	return (
-		<div
+		<li
 			className="comic-card"
-			onClick={handleClick}
-			ref={cardRef}
+			onClick={
+				handleClick as unknown as React.MouseEventHandler<HTMLLIElement>
+			}
+			ref={cardRef as unknown as React.RefObject<HTMLLIElement>}
 			data-testid="comic-card"
 		>
 			<img src={imageUrl} alt={`comic-card__${name}`} />
 			<p>{name}</p>
 			<span>{year}</span>
-		</div>
+		</li>
 	);
 };
 

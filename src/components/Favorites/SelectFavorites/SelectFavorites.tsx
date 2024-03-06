@@ -5,6 +5,7 @@ import GlobalIcon from "../../Icons/GlobalIcon";
 
 import type { Character } from "../../../domain/models/Character";
 import type { IconSizeT } from "../../Icons/IconProps.interface";
+import "./SelectFavorites.css";
 
 interface SelectFavoritesProps {
 	className?: string;
@@ -23,7 +24,7 @@ const SelectFavorites = ({
 	);
 
 	const handleSeleceted = (
-		e: React.MouseEvent<HTMLDivElement, MouseEvent>,
+		e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
 	) => {
 		e.stopPropagation();
 		setSelected(!selected);
@@ -31,7 +32,11 @@ const SelectFavorites = ({
 	};
 
 	return (
-		<div onClick={handleSeleceted} data-testid="select-favorites">
+		<button
+			onClick={handleSeleceted}
+			data-testid="select-favorites"
+			aria-label="Add&Delete Favorites"
+		>
 			{selected ? (
 				<GlobalIcon
 					iconName="HeartIconSelected"
@@ -41,7 +46,7 @@ const SelectFavorites = ({
 			) : (
 				<GlobalIcon iconName="HeartIconUnselected" size={size} />
 			)}
-		</div>
+		</button>
 	);
 };
 export default SelectFavorites;

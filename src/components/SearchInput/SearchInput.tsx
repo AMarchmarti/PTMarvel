@@ -28,6 +28,7 @@ const SearchInput = ({
 				className="input"
 				name={querySearch.length ? "nameStartsWith" : ""}
 				ref={inputRef}
+				aria-label="Search Hero"
 				type="search"
 				value={querySearch}
 				placeholder="Search a character..."

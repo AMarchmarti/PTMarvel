@@ -7,13 +7,18 @@ interface SkeletonCardsProps {
 
 const SkeletonCards: React.FC<SkeletonCardsProps> = ({ length = 50 }) => {
 	const skeletonCards = Array.from({ length: length }, (_, index) => (
-		<div key={index} className="skeleton-card-item">
+		<li key={index} className="skeleton-card-item">
 			<div className="image-placeholder"></div>
 			<div className="text-placeholder"></div>
-		</div>
+		</li>
 	));
 
-	return <div className="skeleton-card">{skeletonCards}</div>;
+	return (
+		<>
+			<div className="text-placeholder"></div>
+			<ul className="skeleton-card">{skeletonCards}</ul>;
+		</>
+	);
 };
 
 export default SkeletonCards;

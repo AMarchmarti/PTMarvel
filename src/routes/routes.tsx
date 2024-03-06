@@ -1,3 +1,4 @@
+import ErrorBoundary from "../components/pages/ErrorPage/ErrorPage";
 import Layout from "../components/Layout/Layout";
 import CharacterDetailPage from "../components/pages/CharacterDetailPage/CharacterDetailPage";
 import CharacterListPage from "../components/pages/CharacterListpage/CharacterListPage";
@@ -11,6 +12,7 @@ import type { RouteObject } from "react-router-dom";
 export const routes: RouteObject[] = [
 	{
 		path: "/",
+		errorElement: <ErrorBoundary />,
 		element: <Layout />,
 		children: [
 			{
