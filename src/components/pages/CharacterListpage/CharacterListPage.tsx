@@ -3,6 +3,7 @@ import { Await, useLoaderData, useNavigate, useSubmit } from "react-router-dom";
 
 import { useFilter } from "../../../hooks/useFilter";
 import CharacterList from "../../CharacterList/CharacterList";
+import ErrorComponent from "../../Error/ErrorComponent";
 import SearchInput from "../../SearchInput/SearchInput";
 import SkeletonCards from "../../SkeletonCards/SkeletonCards";
 
@@ -41,7 +42,7 @@ const CharacterListPage = () => {
 				/>
 
 				<Suspense fallback={<SkeletonCards />}>
-					<Await resolve={data}>
+					<Await resolve={data} errorElement={<ErrorComponent />}>
 						{(characters: Character[]) => {
 							return (
 								<>

@@ -1,7 +1,6 @@
 import Layout from "../components/Layout/Layout";
 import CharacterDetailPage from "../components/pages/CharacterDetailPage/CharacterDetailPage";
 import CharacterListPage from "../components/pages/CharacterListpage/CharacterListPage";
-import ErrorBoundary from "../components/pages/ErrorPage/ErrorPage";
 import FavoriteCharactersPage from "../components/pages/FavoritePage/FavoriteCharactersPage";
 
 import characterLoader from "./Loaders/characterLoader";
@@ -12,7 +11,6 @@ import type { RouteObject } from "react-router-dom";
 export const routes: RouteObject[] = [
 	{
 		path: "/",
-		errorElement: <ErrorBoundary />,
 		element: <Layout />,
 		children: [
 			{

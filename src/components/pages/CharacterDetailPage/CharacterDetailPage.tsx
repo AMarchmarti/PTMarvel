@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import { Await, useLoaderData } from "react-router-dom";
 
 import CharacterDetail from "../../CharacterDetail/CharacterDetail";
+import ErrorComponent from "../../Error/ErrorComponent";
 import Loader from "../../Loader/Loader";
 
 import type { Character } from "../../../domain/models/Character";
@@ -18,6 +19,7 @@ const CharacterDetailPage = () => {
 	return (
 		<Suspense fallback={<Loader />} data-testid="suspense-element">
 			<Await
+				errorElement={<ErrorComponent />}
 				resolve={Promise.all([
 					data.characterPromise,
 					data.comicsPromise,
